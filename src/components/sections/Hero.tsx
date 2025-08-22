@@ -18,12 +18,12 @@ const itemVariants = {
 
 // ====== Visual 1: Real-Time Stock Ticker ======
 function MinimalLine() {
-  const [priceHistory, setPriceHistory] = useState([]);
+  const [priceHistory, setPriceHistory] = useState<{price: number; timestamp: number; isUp: boolean}[]>([]);
   const [currentPrice, setCurrentPrice] = useState(383.45);
   const [isMarketUp, setIsMarketUp] = useState(true);
 
   // Generate realistic intraday stock movement
-  const generateNextPrice = (prevPrice) => {
+  const generateNextPrice = (prevPrice: number): number => {
     // Realistic stock volatility - smaller moves most of the time
     const baseVolatility = prevPrice * 0.002; // 0.2% base volatility
     
@@ -430,7 +430,7 @@ function CalmMLPipeline() {
   ];
   
   const [currentLine, setCurrentLine] = useState(0);
-  const [displayedLines, setDisplayedLines] = useState([]);
+  const [displayedLines, setDisplayedLines] = useState<string[]>([]);
 
   useEffect(() => {
     const timer = setInterval(() => {
