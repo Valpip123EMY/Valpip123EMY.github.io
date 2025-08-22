@@ -1,8 +1,3 @@
-import { MinimalLine } from '@/components/sections/Hero';
-import { ResearchStack } from '@/components/sections/Hero';
-import { CalmDashboard } from '@/components/sections/Hero';
-import { CalmMLPipeline } from '@/components/sections/Hero';
-
 export const HERO_ANIMATION_VARIANTS = {
   hidden: { opacity: 0 },
   visible: { 
@@ -25,29 +20,6 @@ export const ITEM_ANIMATION_VARIANTS = {
     } 
   },
 };
-
-export const HERO_SLIDES = [
-  { 
-    id: 1, 
-    content: <MinimalLine />, 
-    title: 'Analytics' 
-  },
-  { 
-    id: 2, 
-    content: <ResearchStack />, 
-    title: 'Research' 
-  },
-  { 
-    id: 3, 
-    content: <CalmDashboard />, 
-    title: 'Dashboard' 
-  },
-  { 
-    id: 4, 
-    content: <CalmMLPipeline />, 
-    title: 'ML Pipeline' 
-  },
-];
 
 export const HERO_GRADIENT = 'bg-gradient-to-r from-indigo-600 to-purple-600';
 export const HERO_GRADIENT_HOVER = 'hover:from-indigo-700 hover:to-purple-700';
