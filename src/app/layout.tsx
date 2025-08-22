@@ -1,28 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter, Inter_Tight, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Analytics } from '@/components/Analytics';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const interTight = Inter_Tight({
-  subsets: ['latin'],
-  variable: '--font-inter-tight',
-  display: 'swap',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
-  display: 'swap',
-});
+// Use fallback fonts when Google Fonts are not available
+const fontVariables = '--font-inter: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --font-inter-tight: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; --font-jetbrains-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;';
 
 export const metadata: Metadata = {
   title: {
@@ -106,9 +90,11 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        <style dangerouslySetInnerHTML={{ __html: `:root { ${fontVariables} }` }} />
       </head>
       <body
-        className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+        className="font-sans antialiased"
+        style={{ fontFamily: 'var(--font-inter)' }}
       >
         <ThemeProvider
           attribute="class"

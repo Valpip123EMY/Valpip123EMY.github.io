@@ -10,25 +10,25 @@ const kpis = [
     value: 4,
     suffix: '+',
     label: 'Research Projects',
-
+    description: 'Published research in AI and data science'
   },
   {
     value: 6,
     suffix: '+',
     label: 'Competition Wins',
-
+    description: 'Hackathon and research competition victories'
   },
   {
     value: 5,
     suffix: '+',
     label: 'AI Research Areas',
-
+    description: 'Machine learning and data science specializations'
   },
   {
     value: 2,
     suffix: '+',
     label: 'Years Experience',
-
+    description: 'Professional development and research experience'
   },
 ];
 

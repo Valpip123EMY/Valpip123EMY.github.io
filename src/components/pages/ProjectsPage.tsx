@@ -217,7 +217,11 @@ export function ProjectsPage() {
   // Combine experience and projects, sort chronologically (most recent first)
   const sortedItems = useMemo(() => {
     const allItems = [...allExperience, ...allProjects];
-    return allItems.sort((a, b) => b.dateSort - a.dateSort);
+    return allItems.sort((a, b) => {
+      const aDate = a.dateSort instanceof Date ? a.dateSort.getTime() : new Date(a.dateSort).getTime();
+      const bDate = b.dateSort instanceof Date ? b.dateSort.getTime() : new Date(b.dateSort).getTime();
+      return bDate - aDate;
+    });
   }, []);
 
   const filteredItems = useMemo(() => {
@@ -353,10 +357,10 @@ export function ProjectsPage() {
                     <MapPin className="w-4 h-4" />
                     <span>{item.organization}</span>
                   </div>
-                  {item.role && (
+                  {(item as any).role && (
                     <div className="flex items-center gap-2">
                       <Award className="w-4 h-4" />
-                      <span className="font-medium text-teal-300">{item.role}</span>
+                      <span className="font-medium text-teal-300">{(item as any).role}</span>
                     </div>
                   )}
                 </div>
