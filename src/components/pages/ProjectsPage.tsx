@@ -217,7 +217,7 @@ export function ProjectsPage() {
   // Combine experience and projects, sort chronologically (most recent first)
   const sortedItems = useMemo(() => {
     const allItems = [...allExperience, ...allProjects];
-    return allItems.sort((a, b) => b.dateSort - a.dateSort);
+return allItems.sort((a, b) => b.dateSort.getTime() - a.dateSort.getTime());
   }, []);
 
   const filteredItems = useMemo(() => {
