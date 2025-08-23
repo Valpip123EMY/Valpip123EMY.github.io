@@ -21,12 +21,20 @@ export default function HomePage() {
       {/* Hero Section */}
       <Hero />
 
+      {/* KPI Section */}
+      <KPISection />
       
+      {/* Featured Case Studies */}
+      <FeaturedCaseStudies />
       
+      {/* Trust Logos */}
+      <TrustLogos />
       
+      {/* Testimonials */}
+      <Testimonials />
       
-      
-
+      {/* CTA Section */}
+      <CTASection />
     </div>
   );
 }
